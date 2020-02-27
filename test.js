@@ -36,17 +36,12 @@ const speechText = answers.reduce(function(speechText, answer, index) {
 }, `Today's question is... ${questionText}. The answers are...`);
 
 async function testFunc() {
-  const { data } = await axios.post(
-    `https://pollcat-backend.herokuapp.com/api/answers`,
-    {
-      question_id: 1,
-      userUid: 1,
-      answerIndex: 0,
-      townName: "Manchester",
-      countyName: "Greater Manchester"
-    }
+  const question_id = "1";
+  const userUid = "1";
+  const response = await axios.get(
+    `https://pollcat-backend.herokuapp.com/api/questions/${question_id}/answers?userUid=${userUid}`
   );
-  console.log(data);
+  console.log(response.data);
 }
 
 testFunc();
