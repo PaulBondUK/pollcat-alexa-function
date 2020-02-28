@@ -175,6 +175,7 @@ const ExitHandler = {
         request.intent.name === "AMAZON.CancelIntent")
     );
   },
+
   handle(handlerInput) {
     return handlerInput.responseBuilder.speak(exitSkillMessage).getResponse();
   }
